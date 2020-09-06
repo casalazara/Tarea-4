@@ -1,4 +1,4 @@
-global.fetch = require("node-fetch");
+//global.fetch = require("node-fetch");
 
 const listado = fetch("https://gist.githubusercontent.com/josejbocanegra/be0461060d1c2d899740b8247089ba22/raw/916d2141e32e04031bda79c8886e8e4df0ae7f24/productos.json");
 
@@ -10,7 +10,7 @@ listado.then(response => {
   detail.then(respuesta=>{
     return respuesta.json();}).then(detalles=>{
       var arr = new Array(productos.length+1).fill(0);
-      detalles.forEach(pedido => arr[pedido.idproducto]+=1);
+      detalles.forEach(pedido => arr[pedido.idproducto]+=parseInt(pedido.cantidad));
 
       var max = arr[0];
       var maxIndex = 0;
