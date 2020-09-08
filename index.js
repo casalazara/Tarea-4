@@ -1,4 +1,4 @@
-//global.fetch = require("node-fetch");
+//global.fetch = require("node-fetch"); Solo lo dejo para probarlo en repl.it, en consola funciona bien sin esta línea
 
 const listado = fetch("https://gist.githubusercontent.com/josejbocanegra/be0461060d1c2d899740b8247089ba22/raw/916d2141e32e04031bda79c8886e8e4df0ae7f24/productos.json");
 
