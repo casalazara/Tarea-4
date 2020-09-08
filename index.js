@@ -32,10 +32,10 @@ listado.then(response => {
 
 //Sin fetch
 
-function XHRRequest (method,url){
+function XHRRequest (url){
   return new Promise(function (resolve, reject) {
       var req = new XMLHttpRequest();
-      req.open(method, url);
+      req.open("GET", url);
       req.onload = function () {
         if (this.status == 200) {
           resolve(req.response);
@@ -50,12 +50,12 @@ function XHRRequest (method,url){
     });
 }
 
-const listado2 = XHRRequest("get","https://gist.githubusercontent.com/josejbocanegra/be0461060d1c2d899740b8247089ba22/raw/916d2141e32e04031bda79c8886e8e4df0ae7f24/productos.json");
+const listado2 = XHRRequest("https://gist.githubusercontent.com/josejbocanegra/be0461060d1c2d899740b8247089ba22/raw/916d2141e32e04031bda79c8886e8e4df0ae7f24/productos.json");
 
 listado2.then(response => {
   return response;}).then(productos => {
     productos = JSON.parse(productos);
-    const detail2 = XHRRequest("get",'https://gist.githubusercontent.com/josejbocanegra/7b6febf87e9d986048a648487b35e693/raw/576531a2d0e601838fc3de997e021816a4b730f8/detallePedido.json');
+    const detail2 = XHRRequest('https://gist.githubusercontent.com/josejbocanegra/7b6febf87e9d986048a648487b35e693/raw/576531a2d0e601838fc3de997e021816a4b730f8/detallePedido.json');
 
   detail2.then(respuesta=>{
     return respuesta;}).then(detalles=>{
